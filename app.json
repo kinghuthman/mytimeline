@@ -31,6 +31,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "13d5d97d-9174-4f4d-a302-86444d6d6e3a"
+      }
+    },
+    "owner": "kinghuthman"
   }
 }
