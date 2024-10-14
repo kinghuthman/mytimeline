@@ -1,14 +1,16 @@
+import { addName } from "@/src/api/slices/authSlice";
 import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-view";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
-export type Timeline = {
+export type TimelineObj = {
   data: TimelineData[];
 };
 
@@ -24,10 +26,13 @@ const year = [
   { id: 2, title: "2021", description: "2 years ago..." },
 ];
 
-const Timeline = ({ data }: Timeline) => {
+const Timeline = ({ data }: TimelineObj) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showList, setShowList] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(0.5);
+  const dispatch = useDispatch();
+  const storeData = useSelector((state) => state);
+  console.log({ storeData });
 
   let timeLineDates = zoomLevel > 0.7 ? data : year;
 
@@ -83,6 +88,7 @@ const Timeline = ({ data }: Timeline) => {
               <TouchableOpacity
                 key={item.id}
                 onPress={() => {
+                  dispatch(addName("bob"));
                   if (index !== activeIndex) {
                     return [setShowList(true), setActiveIndex(index)];
                   } else {
