@@ -1,7 +1,7 @@
 // App.js
 import { Slot } from "expo-router";
 import { Provider } from "react-redux";
-import { store } from "./api/store";
+import { store } from "./redux-toolkit/store";
 
 export default function App() {
   return (

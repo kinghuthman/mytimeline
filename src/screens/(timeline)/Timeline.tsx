@@ -1,4 +1,6 @@
-import { addName } from "@/src/api/slices/authSlice";
+import { useAppDispatch, useAppSelector } from "@/src/redux-toolkit/hooks";
+import { useGetFriendsQuery } from "@/src/redux-toolkit/services/friends";
+import { addName } from "@/src/redux-toolkit/slices/authSlice";
 import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-view";
 import React, { useEffect, useState } from "react";
 import {
@@ -8,7 +10,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
 
 export type TimelineObj = {
   data: TimelineData[];
@@ -30,9 +31,10 @@ const Timeline = ({ data }: TimelineObj) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showList, setShowList] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(0.5);
-  const dispatch = useDispatch();
-  const storeData = useSelector((state) => state);
-  console.log({ storeData });
+  const dispatch = useAppDispatch();
+  const storeData = useAppSelector((state) => state.timelineApi);
+  const { data: timelineData, error } = useGetFriendsQuery({});
+  console.log({ storeData, timelineData, error });
 
   let timeLineDates = zoomLevel > 0.7 ? data : year;
 
