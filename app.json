@@ -23,13 +23,9 @@
       },
       "package": "com.kinghuthman.mytimeline"
     },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
+
     "plugins": ["expo-router"],
-    "entryPoint": ".src/App.tsx",
+    "entryPoint": "./node_modules/expo-router/entry",
     "experiments": {
       "typedRoutes": true
     },
