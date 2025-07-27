@@ -246,6 +246,9 @@
 - friends timeline only
 - category/group timeline only
 - order by likes, timelines, chronological order
+- default to current date on app start
+- current date button
+- date search ability (calendar type search)
 
 ---
 
