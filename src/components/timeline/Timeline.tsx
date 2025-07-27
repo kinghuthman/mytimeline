@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/src/redux-toolkit/hooks";
 import { useGetFriendsQuery } from "@/src/redux-toolkit/services/friends";
 import { addName } from "@/src/redux-toolkit/slices/authSlice";
+
 import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-view";
 import React, { useEffect, useState } from "react";
 import {
@@ -123,7 +124,9 @@ const Timeline = ({ data }: TimelineObj) => {
                 borderColor: "#fff",
                 borderBottomWidth: 5,
                 height: 400,
+                width: "100%",
                 shadowColor: "#f00",
+                padding: 50,
                 shadowOffset: {
                   width: 0,
                   height: 2,
@@ -160,6 +163,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#fff",
     marginTop: 20,
+    padding: 10,
   },
   item: {
     flex: 1,
